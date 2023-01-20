@@ -15,7 +15,6 @@ const TABS = {
   REVIEWED: "Reviewed",
 };
 const Admin: NextPage<{ pdfs: Array<PdfData> | undefined }> = ({ pdfs }) => {
-  console.log({ pdfs });
   const [tab, setTab] = useState(TABS.PENDING);
   return (
     <div className="w-full">
