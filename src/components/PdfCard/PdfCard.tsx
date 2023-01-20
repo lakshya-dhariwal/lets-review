@@ -25,7 +25,11 @@ const PdfCard: React.FC<PdfData> = (props) => {
           </button>
         </Link>
       </div>
-      <h1 className="mt-2 text-start w-full text-gray-700">{props?.review}</h1>
+      {props?.review && (
+        <h1 className="mt-2 text-start w-full text-gray-700">
+          {props?.review}
+        </h1>
+      )}
     </div>
   );
 };

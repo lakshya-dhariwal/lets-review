@@ -7,7 +7,6 @@ import { getBase64 } from "@/lib/utils";
 
 const User: NextPage = () => {
   const [file, setFile] = useState<any>(null);
-  const [fileName, setFileName] = useState("");
   const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files && files.length > 0) {
@@ -26,7 +25,7 @@ const User: NextPage = () => {
         axios.post("/api/pdf", { file, reviewed: false });
         toast.success("File submitted for review", TOAST_STYLE);
       } catch (error) {
-        toast.error("Unavle to submit file", TOAST_STYLE);
+        toast.error("Unable to submit file", TOAST_STYLE);
       }
     }
   };
