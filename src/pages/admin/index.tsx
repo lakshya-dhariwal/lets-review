@@ -3,11 +3,13 @@ import { PdfData } from "@/lib/models";
 import { getAllPdfs } from "../../lib/services";
 import PdfCard from "../../components/PdfCard/PdfCard";
 import { NextPage } from "next/types";
+import axios from "axios";
+import { SERVER } from "@/lib/constants";
 
 export async function getServerSideProps() {
-  const pdfs = await getAllPdfs();
+  const res = await axios.get(`${SERVER}/api/pdf`);
   return {
-    props: { pdfs },
+    props: { pdfs: res.data.data },
   };
 }
 const TABS = {
