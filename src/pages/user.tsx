@@ -1,11 +1,12 @@
+import React, { useState, useEffect } from "react";
+import toast from "react-hot-toast";
+import axios from "axios";
+import { NextPage } from "next/types";
 import PdfPreview from "@/components/PdfPreview";
 import { TOAST_STYLE } from "@/lib/constants";
 import { getBase64 } from "@/lib/utils";
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import toast from "react-hot-toast";
 
-export default function User() {
+const User: NextPage = () => {
   const [file, setFile] = useState<any>(null);
   const [fileName, setFileName] = useState("");
   const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,4 +58,6 @@ export default function User() {
       ̀
     </div>
   );
-}
+};
+
+export default User;
