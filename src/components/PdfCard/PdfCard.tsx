@@ -1,6 +1,6 @@
 import { copyToClipboard } from "@/lib/utils";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import { PdfData } from "../../lib/models";
 
 const PdfCard: React.FC<PdfData> = (props) => {
@@ -18,7 +18,6 @@ const PdfCard: React.FC<PdfData> = (props) => {
             📋
           </span>
         </h1>
-        {/* {props.reviewed && <h2 className="flex-wrap">{props?.review}</h2>} */}
         <Link href={`/admin/${props._id}`}>
           <button className="bg-main px-2  py-1   rounded ">
             {props.reviewed ? "Update" : "Review"}

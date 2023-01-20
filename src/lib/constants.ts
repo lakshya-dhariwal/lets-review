@@ -6,6 +6,4 @@ export const TOAST_STYLE = {
   },
 };
 
-const dev = process.env.NODE_ENV !== "production";
-
 export const SERVER = "https://lets-review-lakshya.vercel.app/";
