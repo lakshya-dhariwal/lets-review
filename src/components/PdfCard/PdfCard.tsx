@@ -5,8 +5,8 @@ import { PdfData } from "../../lib/models";
 
 const PdfCard: React.FC<PdfData> = (props) => {
   return (
-    <div className="bg-orange-50 p-2 rounded m-2 border border-[1px]  ">
-      <div className="flex  items-center justify-between">
+    <div className="bg-orange-50 p-2 rounded m-2 border border-[1px] flex flex-col items-center ">
+      <div className="flex  items-center justify-between w-full ">
         <h1>
           ID: {props._id}{" "}
           <span
@@ -25,7 +25,7 @@ const PdfCard: React.FC<PdfData> = (props) => {
           </button>
         </Link>
       </div>
-      <h1 className="mt-2 text-gray-700">{props?.review}</h1>
+      <h1 className="mt-2 text-start w-full text-gray-700">{props?.review}</h1>
     </div>
   );
 };
