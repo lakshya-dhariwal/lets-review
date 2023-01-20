@@ -1,0 +1,26 @@
+import type { NextApiRequest, NextApiResponse } from "next";
+import clientPromise from "@/lib/database";
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const client = await clientPromise;
+  const db = client.db("lets-review");
+  switch (req.method) {
+    //Add a pdf to DB
+    case "POST":
+      let bodyObject = JSON.parse(req.body);
+      let myPdf = await db.collection("pdfs").insertOne(bodyObject);
+      res.json(myPdf);
+      break;
+    //get all pdfs
+    case "GET":
+      const allPdfs = await db.collection("pdfs").find({}).toArray();
+      res.json({ status: 200, data: allPdfs });
+      break;
+    default:
+      res.status(404).json({ name: "Route not found" });
+  }
+}
+const getAllPdf = (req: NextApiRequest, res: NextApiResponse) => {};
