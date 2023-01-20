@@ -8,6 +8,4 @@ export const TOAST_STYLE = {
 
 const dev = process.env.NODE_ENV !== "production";
 
-export const SERVER = dev
-  ? "http://localhost:3000"
-  : "https://lets-review-lakshya.vercel.app/";
+export const SERVER = "https://lets-review-lakshya.vercel.app/";
