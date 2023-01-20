@@ -1,5 +1,6 @@
 import axios from "axios";
-import { SERVER } from "./constants";
+import { SERVER, TOAST_STYLE } from "./constants";
+import toast from "react-hot-toast";
 import { PdfData } from "./models";
 
 export const getAllPdfs = async () => {
@@ -10,7 +11,14 @@ export const getAllPdfs = async () => {
     console.log("Error in getAllPdfs", error);
   }
 };
-
+export const submitPdf = async (file: string) => {
+  try {
+    axios.post("/api/pdf", { file, reviewed: false });
+    toast.success("File submitted for review", TOAST_STYLE);
+  } catch (error) {
+    toast.error("Unable to submit file", TOAST_STYLE);
+  }
+};
 export const getPdfById = async (id: string) => {
   try {
     const res = await axios.get(`${SERVER}/api/pdf/${id}`);

@@ -26,6 +26,7 @@ export default async function handler(
           { $set: { review: req.body.review, reviewed: true } }
         );
       res.json(newPdf);
+      break;
     default:
       res.status(404).json({ name: "Route not found" });
   }

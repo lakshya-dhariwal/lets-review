@@ -4,6 +4,7 @@ import axios from "axios";
 import { NextPage } from "next/types";
 import { TOAST_STYLE } from "@/lib/constants";
 import { getBase64 } from "@/lib/utils";
+import { submitPdf } from "@/lib/services";
 
 const User: NextPage = () => {
   const [file, setFile] = useState<any>(null);
@@ -21,12 +22,7 @@ const User: NextPage = () => {
       toast.error("Please select a file first", TOAST_STYLE);
       return;
     } else {
-      try {
-        axios.post("/api/pdf", { file, reviewed: false });
-        toast.success("File submitted for review", TOAST_STYLE);
-      } catch (error) {
-        toast.error("Unable to submit file", TOAST_STYLE);
-      }
+      submitPdf(file);
     }
   };
 
