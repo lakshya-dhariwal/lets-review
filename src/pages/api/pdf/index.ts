@@ -6,12 +6,11 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const client = await clientPromise;
-  const db = client.db("lets-review");
+  const db = client.db("Cluster0");
   switch (req.method) {
     //Add a pdf to DB
     case "POST":
-      let bodyObject = JSON.parse(req.body);
-      let myPdf = await db.collection("pdfs").insertOne(bodyObject);
+      let myPdf = await db.collection("pdfs").insertOne(req.body);
       res.json(myPdf);
       break;
     //get all pdfs

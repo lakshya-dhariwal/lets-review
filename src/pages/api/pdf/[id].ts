@@ -6,7 +6,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const client = await clientPromise;
-  const db = client.db("lets-review");
+  const db = client.db("Cluster0");
   const { id } = req.query;
   switch (req.method) {
     //get a single pdf
