@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, [router]);
   return (
-    <div className="font-lato">
+    <div className="font-lato h-full">
       <Toaster reverseOrder={false} />
       <Nav />
       <PageLoading isAnimating={isAnimating} />

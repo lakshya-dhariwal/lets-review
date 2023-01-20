@@ -22,4 +22,3 @@ export default async function handler(
       res.status(404).json({ name: "Route not found" });
   }
 }
-const getAllPdf = (req: NextApiRequest, res: NextApiResponse) => {};
