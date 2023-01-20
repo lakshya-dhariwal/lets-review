@@ -6,4 +6,4 @@ export const TOAST_STYLE = {
   },
 };
 
-export const SERVER = "https://lets-review-lakshya.vercel.app/";
+export const SERVER = "https://lets-review-lakshya.vercel.app";
