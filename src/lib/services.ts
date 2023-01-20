@@ -19,3 +19,12 @@ export const getPdfById = async (id: string) => {
     console.log("Error in getAllPdfs", error);
   }
 };
+
+export const updatePdfById = async (body: PdfData) => {
+  try {
+    const res = await axios.post(`${SERVER}/api/pdf/${body._id}`, body);
+    return res.data as PdfData;
+  } catch (error) {
+    console.log("Error in getAllPdfs", error);
+  }
+};

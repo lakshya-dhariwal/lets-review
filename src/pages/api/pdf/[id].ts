@@ -16,12 +16,16 @@ export default async function handler(
         .collection("pdfs")
         .findOne({ _id: new ObjectId(id as string) });
       res.json(pdf);
-    //update a single pdf
-    // case "POST":
-    //   const newPdf = await db
-    //     .collection("pdfs")
-    //     .findOneAndUpdate({ _id: new ObjectId(id as string) }, req.body);
-    //   res.json(newPdf);
+      break;
+    // update a single pdf
+    case "POST":
+      const newPdf = await db
+        .collection("pdfs")
+        .findOneAndUpdate(
+          { _id: new ObjectId(id as string) },
+          { $set: { review: req.body.review, reviewed: true } }
+        );
+      res.json(newPdf);
     default:
       res.status(404).json({ name: "Route not found" });
   }
