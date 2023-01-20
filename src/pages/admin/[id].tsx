@@ -29,7 +29,7 @@ const Review: NextPage<{ pdf: PdfData }> = ({ pdf }) => {
   };
 
   return (
-    <div className="w-full flex items-center flex-col">
+    <div className="w-full flex items-center flex-col h-full">
       <h1 className="text-center m-3 text-2xl font-semibold">
         ID: {pdf?._id}{" "}
         <span
@@ -67,6 +67,8 @@ const Review: NextPage<{ pdf: PdfData }> = ({ pdf }) => {
       >
         Submit
       </button>
+
+      <embed src={`${pdf.file}`} className="w-1/2 h-[100vh] mt-4" />
     </div>
   );
 };

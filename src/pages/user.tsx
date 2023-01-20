@@ -50,12 +50,7 @@ const User: NextPage = () => {
       >
         Submit
       </button>
-      {file && (
-        <div className="border border-main border-dashed">
-          <PdfPreview file={file} name={fileName} />
-        </div>
-      )}
-      ̀
+      {file && <embed src={`${file}`} className="w-1/2 h-[100vh] " />}̀
     </div>
   );
 };
